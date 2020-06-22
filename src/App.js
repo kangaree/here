@@ -1,23 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import logo from './assets/panels/0_0.gif';
 import './App.css';
 
 function App() {
+
+  const [count, setCount] = useState(0);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img
+          src={`./panels/${ Math.floor(count / 6) }_${count % 6}.gif`}
+          alt={logo}
+          onClick={() => setCount( count > 34 ? 0 : count + 1)}
+        />
+        <p>Here (1989) by Richard McGuire.</p>
+        <p style={{fontSize: 10}}>Click to change time in this living room space.</p>
+        <p style={{fontSize: 8}}>@kangaree</p>
       </header>
     </div>
   );
